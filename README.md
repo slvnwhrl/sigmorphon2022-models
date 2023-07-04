@@ -16,7 +16,9 @@ and task 2 (sentence-level).
 # output folder must exist ("." for current folder)
 python predict.py --model-folder model --output PATH_TO_OUTPUT_DIR --test PATH_TO_FILE
 ```
-However, if you want to perform **sentence-level** segmentation, you need to perform additional steps because of our strategy:
+
+### Additional steps for sentence-level segmentation
+If you want to perform **sentence-level** segmentation, you need to perform additional steps because of our strategy:
 We simply split sentence into single tokens and perform word-level-segmentation! This means:
 Our strategy for the shared task: split sentences into single words and perform word-level segmentation
 - After segmentation, glue segmented words back together to from original sentences.
@@ -25,7 +27,12 @@ Our strategy for the shared task: split sentences into single words and perform 
 spacy tokenised would work fine, but I'd look at the tokenization of e.g. punctuation.)
 - I have added a python script `glue_words_task_II.py` that I used to form the original sentences.
 - The original data contained double whitespaces and this caused some problems with `glue_words_task_II.py`, so `data/eng.sentence.corrected.test.tsv` is a version of the test data with only single whitespaces.
-- Also note that we used a different SINGLE segmentation token to decrease the complexity (↓), so check if this token is contained in your test data (if so, change it manually in the loaded vocabulary instance).
+
+### Segmentation token
+Note that we used a different SINGLE segmentation token to decrease the complexity (as opposed to *@@* in the orginial
+shared task data), so check if this token is contained in your test data (if so, change it manually in the loaded vocabulary instance).
+- word-level (part 1): _
+- sentence-level (part 2): ↓
 
 ## Citation
 If you use these models in your work, please cite the following paper:
