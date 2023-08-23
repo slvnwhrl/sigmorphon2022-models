@@ -1,0 +1,11 @@
+{
+  "char-dim": 100,
+  "action-dim": 100,
+  "enc-type": "lstm",
+  "enc-hidden-dim": 200,
+  "enc-layers": 2,
+  "enc-bidirectional": true,
+  "enc-dropout": 0.1,
+  "dec-layers": 1,
+  "dec-hidden-dim": 200
+}
